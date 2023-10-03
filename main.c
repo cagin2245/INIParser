@@ -29,12 +29,21 @@
 //#define delete log_delete(__FILE__,__LINE__); delete
 //#endif
 
-int main()
-
+int main(int  argc, char** argv) // argc : argument count , argv: argument value -> pointer to pointer first element of string
 {
-	
+	if (argc < 2 || argc> 3)
+	{
+		printf_s("Usage: INIParser [PathToIniFile] <OPTIONAL:PathToLogFile>");
+		return -1;
+	}
 
-	 ini_parseINIFromFile("./Config.ini");
+	const char* logfile = NULL;
+	if (argc >= 3)
+	{
+		logfile = argv[2];
+	}
+	
+	ini_parseINIFromFile(argv[1],logfile);
 
 
 

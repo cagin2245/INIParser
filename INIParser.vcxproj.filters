@@ -29,5 +29,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Config.ini" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="iniparser.log" />
   </ItemGroup>
 </Project>

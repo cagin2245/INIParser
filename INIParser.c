@@ -1,7 +1,7 @@
 
 #include "INIParser.h"
 
-void ini_parseINIFromFile(const char* filePath)
+void ini_parseINIFromFile(const char* filePath, const char* logfilePath)
 {
 	FILE* file = NULL; // FILE is opaque
 	fopen_s(&file, filePath, "rb");
@@ -20,7 +20,7 @@ void ini_parseINIFromFile(const char* filePath)
 			if (fread(fileContent, fileSize, 1, file) == 1)
 			{
 				fileContent[fileSize] = '\0';
-				ini_parseINI(fileContent);
+				ini_parseINI(fileContent,logfilePath);
 
 			}
 			free(fileContent);
@@ -29,12 +29,15 @@ void ini_parseINIFromFile(const char* filePath)
 	}
 }
 
-void ini_parseINI(const char* iniData)
+void ini_parseINI(const char* iniData , const char* logfilePath)
 {
 	// Open a log file
 
 	FILE* log = NULL;
-	fopen_s(&log, "./iniparser.log", "wb");
+	if (logfilePath)
+	{
+		fopen_s(&log, logfilePath, "wb");
+	}
 
 
 	// working buffer

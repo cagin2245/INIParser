@@ -134,7 +134,12 @@
     <ClInclude Include="INIParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="Config.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="iniparser.log" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
